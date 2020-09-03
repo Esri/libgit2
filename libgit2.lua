@@ -27,7 +27,7 @@ project "libgit2"
     _3RDPARTY_DIR .. "/zlib",
   }
 
-  if (os.is("windows")) then
+  if (_PLATFORM_WINDOWS or _PLATFORM_WINUWP) then
 
     platform_files = {
       "src/win32/*.c",
@@ -38,7 +38,7 @@ project "libgit2"
       "SHA1DC_CUSTOM_INCLUDE_UBC_CHECK_C=\"common.h\"",
     }
 
-  elseif (os.is("linux") or os.is("macosx")) then
+  else
 
     platform_files = {
       "src/unix/*.c",
@@ -74,7 +74,7 @@ project "libgit2"
   -- configurations
   -- -------------------------------------------------------------
 
-  if (os.is("windows") and not _TARGET_IS_WINUWP) then
+  if (_PLATFORM_WINDOWS) then
     -- -------------------------------------------------------------
     -- configuration { "windows" }
     -- -------------------------------------------------------------
@@ -138,7 +138,7 @@ project "libgit2"
     -- -------------------------------------------------------------
   end
 
-  if (os.is("linux") and not _OS_IS_ANDROID) then
+  if (_PLATFORM_LINUX) then
     -- -------------------------------------------------------------
     -- configuration { "linux" }
     -- -------------------------------------------------------------
@@ -202,7 +202,7 @@ project "libgit2"
     -- -------------------------------------------------------------
   end
 
-  if (os.is("macosx") and not _OS_IS_IOS and not _OS_IS_ANDROID) then
+  if (_PLATFORM_MACOS) then
     -- -------------------------------------------------------------
     -- configuration { "macosx" }
     -- -------------------------------------------------------------
@@ -242,9 +242,9 @@ project "libgit2"
     -- -------------------------------------------------------------
   end
 
-  if (_OS_IS_IOS) then
+  if (_PLATFORM_IOS) then
     -- -------------------------------------------------------------
-    -- configuration { "ios" } == _OS_IS_IOS
+    -- configuration { "ios*" }
     -- -------------------------------------------------------------
 
     -- common configuration settings
@@ -306,9 +306,9 @@ project "libgit2"
     -- -------------------------------------------------------------
   end
 
-  if (_OS_IS_ANDROID) then
+  if (_PLATFORM_ANDROID) then
     -- -------------------------------------------------------------
-    -- configuration { "android" } == _OS_IS_ANDROID
+    -- configuration { "android*" }
     -- -------------------------------------------------------------
 
     -- common configuration settings
@@ -418,9 +418,9 @@ project "libgit2"
     -- -------------------------------------------------------------
   end
 
-  if (_TARGET_IS_WINUWP) then
+  if (_PLATFORM_WINUWP) then
     -- -------------------------------------------------------------
-    -- configuration { "winuwp" } == _TARGET_IS_WINUWP
+    -- configuration { "windows" }
     -- -------------------------------------------------------------
 
     -- common configuration settings
