@@ -31,7 +31,7 @@ includedirs {
   "src",
   "deps/http-parser",
   "deps/pcre",
-  _3RDPARTY_DIR .. "/zlib",
+  _3RDPARTY_DIR .. "/zlib-ng",
 }
 
 files {
