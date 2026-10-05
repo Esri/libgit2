@@ -2,7 +2,7 @@ from conans import ConanFile
 
 
 class Git2Conan(ConanFile):
-    name = "git2"
+    name = "libgit2"
     version = "0.28.2"
     url = "https://github.com/Esri/libgit2/tree/runtimecore"
     license = "https://github.com/Esri/libgit2/blob/runtimecore/COPYING"
@@ -20,4 +20,4 @@ class Git2Conan(ConanFile):
 
         # libraries
         output = "output/" + str(self.settings.platform_architecture_target) + "/staticlib"
-        self.copy("*" + self.name + "*", src=base + "../../" + output, dst=output)
+        self.copy("*git2*", src=base + "../../" + output, dst=output)
