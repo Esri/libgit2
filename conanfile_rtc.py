@@ -1,7 +1,7 @@
 from conans import ConanFile
 
 
-class Git2Conan(ConanFile):
+class Libgit2Conan(ConanFile):
     name = "libgit2"
     version = "1.2.0"
     url = "https://github.com/Esri/libgit2/tree/runtimecore"
