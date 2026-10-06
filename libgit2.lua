@@ -1,4 +1,4 @@
-project "libgit2"
+project "git2"
 
 dofile(_BUILD_DIR .. "/static_library.lua")
 
@@ -49,9 +49,6 @@ files {
 if (_PLATFORM_ANDROID) then
 end
 
-if (_PLATFORM_COCOA) then
-end
-
 if (_PLATFORM_IOS) then
 end
 
@@ -91,7 +88,4 @@ if (_PLATFORM_WINDOWS) then
     -- use win32/rt_win32_thread.c to alias (rename) win32/thread.c without altering upstream source
     "src/win32/thread.c",
   }
-end
-
-if (_PLATFORM_WINUWP) then
 end
